@@ -69,16 +69,6 @@ class Deck extends Component {
       transform: [{ rotate }]
     }
   }
-
-  renderNoMoreCards() {
-    return (
-      <Card title="All Done!">
-        <Text>
-          No more cards!
-        </Text>
-      </Card>
-    )
-  }
   
   renderCards() {
     if (this.state.index >= this.props.data.length) {

@@ -69,8 +69,22 @@ class Deck extends Component {
       transform: [{ rotate }]
     }
   }
+
+  renderNoMoreCards() {
+    return (
+      <Card title="All Done!">
+        <Text>
+          No more cards!
+        </Text>
+      </Card>
+    )
+  }
   
   renderCards() {
+    if (this.state.index >= this.props.data.length) {
+      return this.props.renderNoMoreCards()
+    }
+
     return this.props.data.map((item, i) => {
       if (i < this.state.index) { return null }
       
@@ -85,7 +99,7 @@ class Deck extends Component {
           </Animated.View>
         )
       }
-      
+
       return this.props.renderCard(item)
     })
   }
